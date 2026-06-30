@@ -16,5 +16,4 @@ jobs:
       - name: Mostrar variable
         run: |
           echo "Entorno actual: $ENTORNO"
-``
 
