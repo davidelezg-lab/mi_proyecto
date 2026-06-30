@@ -1,4 +1,4 @@
-name: Jobs secuenciales
+name: Matriz de versiones
 
 on:
   push:
@@ -6,19 +6,13 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - run: echo "Build"
-
   test:
     runs-on: ubuntu-latest
-    needs: build  #  DEPENDENCIA
-    steps:
-      - run: echo "Test"
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: test
+    strategy:
+      matrix:
+        version: [1, 2, 3]
+
     steps:
-      - run: echo "Deploy"
+      - name: Test versión
+        run: echo "Versión ${{ matrix.version }}"
