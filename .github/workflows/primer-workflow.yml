@@ -1,4 +1,4 @@
-name: Uso de variables
+name: Uso de variables limpio
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - prueba
 
 jobs:
-  variables:
+  ejemplo:
     runs-on: ubuntu-latest
 
     env:
@@ -14,5 +14,4 @@ jobs:
 
     steps:
       - name: Mostrar variable
-        run: |
-          echo "Entorno actual: $ENTORNO"
+        run: echo "Entorno actual: $ENTORNO"
