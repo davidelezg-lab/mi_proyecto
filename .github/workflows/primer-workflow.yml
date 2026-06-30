@@ -1,4 +1,4 @@
-name: Matriz de versiones
+name: Uso de secretos
 
 on:
   push:
@@ -6,13 +6,9 @@ on:
       - main
 
 jobs:
-  test:
+  secreto:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        version: [1, 2, 3]
-
     steps:
-      - name: Test versión
-        run: echo "Versión ${{ matrix.version }}"
+      - name: Mostrar secreto
+        run: echo "Token: ${{ secrets.MI_TOKEN }}"
