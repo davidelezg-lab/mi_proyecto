@@ -1,15 +1,23 @@
-name: Uso de secretos
+name: Solo si cambia app
 
 on:
   push:
     branches:
+      - prueba
       - main
+    paths:
+      - 'app.txt'
 
 jobs:
-  secreto:
+  verificar-cambio:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Mostrar secreto
-        run: |
-          echo "Token: ${{ secrets.MI_TOKEN }}"
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
+
+      - name: Mostrar mensaje
+        run: echo "Se ha modificado app.txt, ejecutando workflow"
+
+      - name: Mostrar contenido del archivo
+        run: cat app.txt
