@@ -1,22 +1,17 @@
-name: Condiciones
+name: Jobs paralelos
 
 on:
   push:
     branches:
-      - main
+      - prueba
 
 jobs:
-  condicion:
+  job1:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Paso siempre
-        run: echo "Siempre se ejecuta"
+      - run: echo "Job 1"
 
-      - name: Solo en main
-        if: github.ref == 'refs/heads/main'
-        run: echo "Solo main"
-
-      - name: Solo en prueba
-        if: github.ref == 'refs/heads/prueba'
-        run: echo "Solo prueba"
+  job2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Job 2"
