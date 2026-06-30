@@ -15,4 +15,4 @@ jobs:
     steps:
       - name: Mostrar variable
         run: |
-          echo "Entorno actual: $ENTORNO"
+          echo Entorno actual: $ENTORNO
