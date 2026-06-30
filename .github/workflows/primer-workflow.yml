@@ -1,4 +1,4 @@
-name: Uso de variables limpio
+name: Condiciones
 
 on:
   push:
@@ -6,13 +6,17 @@ on:
       - main
 
 jobs:
-  ejemplo:
+  condicion:
     runs-on: ubuntu-latest
 
-    env:
-      ENTORNO: desarrollo
-
     steps:
-      - name: Mostrar variable
-        run: |
-          echo Entorno actual: $ENTORNO
+      - name: Paso siempre
+        run: echo "Siempre se ejecuta"
+
+      - name: Solo en main
+        if: github.ref == 'refs/heads/main'
+        run: echo "Solo main"
+
+      - name: Solo en prueba
+        if: github.ref == 'refs/heads/prueba'
+        run: echo "Solo prueba"
