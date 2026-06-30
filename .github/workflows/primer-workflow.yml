@@ -3,7 +3,7 @@ name: Jobs paralelos
 on:
   push:
     branches:
-      - prueba
+      - main
 
 jobs:
   job1:
