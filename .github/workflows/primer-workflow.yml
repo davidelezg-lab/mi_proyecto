@@ -1,11 +1,13 @@
-name: PR workflow
+name: Test simple
 
-on:
-  pull_request:
+on: push
 
 jobs:
-  prueba:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Revisión automática"
+      - uses: actions/checkout@v4
+
+      - name: Simular test OK
+        run: echo "Test pasado"
