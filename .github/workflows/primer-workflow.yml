@@ -1,22 +1,24 @@
-name: Pipeline básico
+name: Pipeline CI básico
 
 on:
   push:
-    branches: [ main, developer ]
-  workflow_dispatch:
+    branches: [ developer ]
+  pull_request:
+    branches: [ developer ]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build
-        run: echo "Compilando..."
-
-      - name: Test
-        run: echo "Ejecutando tests..."
-
-      - name: Deploy
-        run: echo "Desplegando..."
+      - name: Simular test
+        run: |
+          echo "Ejecutando test..."
+          if grep -q "ERROR" app.txt; then
+            echo "Test FALLA"
+            exit 1
+          else
+            echo "Test OK"
+          fi
