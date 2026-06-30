@@ -3,6 +3,7 @@ name: Pipeline básico
 on:
   push:
     branches: [ main, developer ]
+  workflow_dispatch:
 
 jobs:
   build:
