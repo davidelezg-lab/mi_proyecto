@@ -3,7 +3,7 @@ name: Uso de variables limpio
 on:
   push:
     branches:
-      - prueba
+      - main
 
 jobs:
   ejemplo:
