@@ -11,3 +11,6 @@ jobs:
 
       - name: Simular test OK
         run: echo "Test pasado"
+
+      - name: Simular fallo
+        run: exit 1
