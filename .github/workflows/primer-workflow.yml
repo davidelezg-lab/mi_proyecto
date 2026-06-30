@@ -3,7 +3,7 @@ name: Ejecutar comandos
 on:
   push:
     branches:
-      - developer
+      - prueba
 
 jobs:
   comandos:
