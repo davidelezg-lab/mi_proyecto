@@ -1,23 +1,15 @@
-name: Solo si cambia app
+name: Manual con input
 
 on:
-  push:
-    branches:
-      - prueba
-      - main
-    paths:
-      - 'app.txt'
+  workflow_dispatch:
+    inputs:
+      nombre:
+        description: 'Tu nombre'
+        required: true
 
 jobs:
-  verificar-cambio:
+  saludo:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout del repositorio
-        uses: actions/checkout@v3
-
-      - name: Mostrar mensaje
-        run: echo "Se ha modificado app.txt, ejecutando workflow"
-
-      - name: Mostrar contenido del archivo
-        run: cat app.txt
+      - run: echo "Hola ${{ github.event.inputs.nombre }}"
