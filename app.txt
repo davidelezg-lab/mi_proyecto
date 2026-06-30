@@ -1,2 +1,2 @@
-Hola DevOps
-prueba
+Tu versión local
+Versión del repositorio remoto
