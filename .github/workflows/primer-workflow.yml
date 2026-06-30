@@ -1,4 +1,4 @@
-name: Ejecutar comandos
+name: Pipeline CI básico
 
 on:
   push:
@@ -7,16 +7,20 @@ on:
   pull_request:
     branches:
       - prueba
-      
 jobs:
-  comandos:
+  test:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Ver archivos
-        run: ls -la
+      - name: Simular test
+        run: |
+          echo "Ejecutando test..."
+          if grep -q "ERROR" app.txt; then
+            echo "Test FALLA"
+            exit 1
+          else
+            echo "Test OK"
+          fi
 
-      - name: Mostrar fecha
-        run: date
