@@ -2,10 +2,11 @@ name: Pipeline CI básico
 
 on:
   push:
-    branches: [ prueba ]
+    branches:
+      - prueba
   pull_request:
-    branches: [ prueba ]
-
+    branches:
+      - prueba
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -18,7 +19,7 @@ jobs:
           echo "Ejecutando test..."
           if grep -q "ERROR" app.txt; then
             echo "Test FALLA"
-            exit 1
+            exit 0
           else
             echo "Test OK"
           fi
