@@ -1,0 +1,19 @@
+name: Ejecutar comandos
+
+on:
+  push:
+    branches:
+      - prueba
+
+jobs:
+  comandos:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Ver archivos
+        run: ls -la
+
+      - name: Mostrar fecha
+        run: date
