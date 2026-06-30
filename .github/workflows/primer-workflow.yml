@@ -2,9 +2,9 @@ name: Pipeline CI básico
 
 on:
   push:
-    branches: [ developer ]
+    branches: [ prueba ]
   pull_request:
-    branches: [ developer ]
+    branches: [ prueba ]
 
 jobs:
   test:
@@ -22,3 +22,4 @@ jobs:
           else
             echo "Test OK"
           fi
+
