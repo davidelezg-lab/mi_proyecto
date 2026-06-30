@@ -1,25 +1,18 @@
-name: Pipeline CI básico
+name: Uso de variables
 
 on:
   push:
-    branches: [ prueba ]
-  pull_request:
-    branches: [ prueba ]
+    branches:
+      - prueba
 
 jobs:
-  test:
+  variables:
     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+    env:
+      ENTORNO: desarrollo
 
-      - name: Simular test
-        run: |
-          echo "Ejecutando test..."
-          if grep -q "ERROR" app.txt; then
-            echo "Test FALLA"
-            exit 1
-          else
-            echo "Test OK"
-          fi
+    steps:
+      - name: Mostrar variable
+        run: echo "Entorno actual: $ENTORNO"
 
