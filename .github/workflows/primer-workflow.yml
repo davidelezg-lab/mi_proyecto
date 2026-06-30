@@ -1,19 +1,11 @@
-name: Ejecutar comandos
+name: PR workflow
 
 on:
-  push:
-    branches:
-      - prueba
+  pull_request:
 
 jobs:
-  comandos:
+  prueba:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Ver archivos
-        run: ls -la
-
-      - name: Mostrar fecha
-        run: date
+      - run: echo "Revisión automática"
