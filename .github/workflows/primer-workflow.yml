@@ -1,6 +1,9 @@
 name: Ejecutar comandos
 
-on: push
+on:
+  push:
+    branches:
+      - developer
 
 jobs:
   comandos:
